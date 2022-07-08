@@ -1,4 +1,7 @@
 from tkinter import *
+import django
+
+#MAYBE SHOULD BE BUILDING THIS IN JS INSTEAD EH?------------------------------------------------------------------------------------------------------------------
 
 root = Tk()
 
@@ -78,6 +81,45 @@ assign_legion('Dark Angels')
 
 print(lgn)
 
-def assign_weight():
-    if input == True:
-        print('Dark Angels' + '3')
+weight = 'base weight'
+
+#Dark Angels weight variable
+daw = 0
+#Emperor's Children weight variable
+ecw = 0
+#Iron Warriors weight variable
+iww = 0
+#Salamanders weight variable
+saw = 0
+#Imperial Fists weight variable
+ifw = 0
+#Blood Angels weight variable
+baw = 0
+#Iron Hands weight variable
+ihw = 0
+#White Scars weight variable
+wsw = 0
+#Raven Guard weight variable
+rgw = 0
+#Ultramarines weight variable
+umw = 0
+#Space Wolves weight variable
+sww = 0
+#Death Guard weight variable
+dgw = 0
+#Thousand Sons weight variable
+tsw = 0
+#World Eaters weight variable
+wew = 0
+#Word Bearers weight variable
+wbw = 0
+#Night Lords weight variable
+nlw = 0
+#Sons of Horus weight variable
+shw = 0
+#Alpha Legion weight variable
+alw = 0
+
+
+
+    

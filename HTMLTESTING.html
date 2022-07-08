@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=devicde-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+
+<div>
+<body>
+    <p>
+        <h2>Welcome to the Horus Heresy Legion Affiliation Quiz</h2>
+    </p>
+
+
+</body>
+</div>
+
+
+<div>
+
+<body>
+<form onsubmit="return false">
+    <label for="legion">Legion:</label><br>
+
+    <select name="legions" id="legions">
+        <option value="Dark Angels">Dark Angels</option>
+        <option value="Emperor/'s Children">Emperor's Children</option>
+        <option value="Iron Warriors">Iron Warriors</option>
+        <option value="White Scars">White Scars</option>
+        <option value="Space Wolves">Space Wolves</option>
+        <option value="Imperial Fists">Imperial Fists</option>
+        <option value='Night Lords'>Night Lords</option>
+        <option value="Blood Angels">Blood Angels</option>
+        <option value="Iron Hands">Iron Hands</option>
+        <option value="World Eaters">World Eaters</option>
+        <option value="Ultramarines">Ultramarines</option>
+        <option value="Death Guard">Death Guard</option>
+        <option value="Thousand Sons">Thousand Sons</option>
+        <option value="Sons of Horus">Sons of Horus</option>
+        <option value="Word Bearers">Word Bearers</option>
+        <option value="Salamanders">Salamanders</option>
+        <option value="Raven Guard">Raven Guard</option>
+        <option value="Alpha Legion">Alpha Legion</option>
+    </select>    
+<!-- Here I am defining what happens on click, which is that sub is invoked -->
+    <input pys-onClick="sub" type="submit" id="btn-form" value="submit">
+
+
+</form>
+
+    <p>Output:</p>
+    <p id = 'output'></p>
+    <py-script>
+<!-- Here I am defining the function in my script to be the same element invoked above -->
+        def sub(*args, **kwargs):
+            result_place = Element('output')
+            result_place.write(f"your chosen Legion is {Element('legions').value}")
+    </py-script>
+
+</body>
+</div>
+
+
+
+
+</html>
