@@ -18,16 +18,17 @@
 </body>
 </div>
 
+<br>
 
 <div>
-
+<!--
 <body>
 <form onsubmit="return false">
     <label for="legion">Legion:</label><br>
 
     <select name="legions" id="legions">
         <option value="Dark Angels">Dark Angels</option>
-        <option value="Emperor/'s Children">Emperor's Children</option>
+        <option value="Emperors Children">Emperors Children</option>
         <option value="Iron Warriors">Iron Warriors</option>
         <option value="White Scars">White Scars</option>
         <option value="Space Wolves">Space Wolves</option>
@@ -45,25 +46,560 @@
         <option value="Raven Guard">Raven Guard</option>
         <option value="Alpha Legion">Alpha Legion</option>
     </select>    
-<!-- Here I am defining what happens on click, which is that sub is invoked -->
+
     <input pys-onClick="sub" type="submit" id="btn-form" value="submit">
 
 
 </form>
-
-    <p>Output:</p>
+-->
+ <!--   <p>Output:</p>
     <p id = 'output'></p>
     <py-script>
-<!-- Here I am defining the function in my script to be the same element invoked above -->
+
         def sub(*args, **kwargs):
             result_place = Element('output')
             result_place.write(f"your chosen Legion is {Element('legions').value}")
     </py-script>
-
+-->
 </body>
 </div>
 
+<div>
+<body>
 
+    <py-script>
+        daw = 0
+        ecw = 0
+        iww = 0
+        saw = 0
+        ifw = 0
+        baw = 0
+        ihw = 0
+        wsw = 0
+        rgw = 0
+        umw = 0
+        sww = 0
+        dgw = 0
+        tsw = 0
+        wew = 0
+        wbw = 0
+        nlw = 0
+        shw = 0
+        alw = 0
+    </py-script>
 
+    <form onsubmit="return false">
+        <label for="legion">Everyone knows Horus betrayed the Emperor, but some would say the Emperor first betrayed many of his own Sons.  Was Horus justified in his actions?</label>
+        <br>
+        <button id="yes" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_yes_weight" value="yes">
+            Yes, Horus was justified
+        </button>
+        <button id="no" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_no_weight" value="no">
+            No, Horus was not justified
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">You have established a foothold on a planet with forces rebelling against the Imperium.  Do you coordinate orbital assaults, or transport additional troops and armaments to the surface?</label><br>
+        <button id="orbital" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_orbital_weight" value="submit">
+            Orbital Assault
+        </button>
+        <button id="arma" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_arma_weight" value="submit">
+            Troops and Armaments
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">There is an Ork outpost hosting somewhere around 500-1000 Orks, and you are tasked with wiping it out.  Do you assemble a large force of Bolter-equipped troops, or do you exchange your numbers for just a few Elite squads?</label><br>
+        <button id="numbers" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_numbers_weight" value="submit">
+            Numbers baby!
+        </button>
+        <button id="elite" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_elite_weight" value="submit">
+            The best of the best can handle it
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">You are planning an invasion onto a planet that has an unknown Xenos species occupying its surface.  Do you send in Shock Assault squads to try to surprise the enemy with as much unexpected damage, as fast as possible, and hope you get some information back, or, do you transport your force in full, thus alerting the enemy, and bunker down for a battle of attrition, with the hopes of gathering intel as the battles wane on?</label><br>
+        <button id="shock" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_shock_weight" value="submit">
+            Shock Assault
+        </button>
+        <button id="attrition" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_attrition_weight" value="submit">
+            Attrition
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">The Emperor has fallen.  What is your reaction to being asked to follow the newly introduced Codex Astartes?</label><br>
+        <button id="nocodex" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_nocodex_weight" value="submit">
+            No way, my Legion needs to stay strong
+        </button>
+        <button id="yescodex" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_yescodex_weight" value="submit">
+            Yes, anything to avoid another civil war
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">You are at a resupply station and are arming your troops for your next conquest.  Are you grabbing fresh Chainswords and Chainaxes, or are you rounding up Plasma canisters and Bolter rounds?</label><br>
+        <button id="chain" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_chain_weight" value="submit">
+            Chainweapons!!
+        </button>
+        <button id="ranged" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_ranged_weight" value="submit">
+            Ranged Weapons
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">Do you agree with the results of the Council of Nikea?</label><br>
+        <button id="propsyker" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_propsyker_weight" value="submit">
+            No, Psykers are fine, and Space Wolf Shamans are Psykers
+        </button>
+        <button id="antipsyker" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_antipsyker_weight" value="submit">
+            Yes, Psykers are a danger to the Imperium and Shamans are not Pskyers
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">Your target is to collect valued relics inside an enemy fortress.  Do you launch a Stealth mission, utilizing covert operations, spies, and trickery to carry out the operation quietly, or, do you establish footing on the outskirts of the fortress and lay siege to the entire enemy force?</label><br>
+        <button id="covert" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_covert_weight" value="submit">
+            Covert Operations
+        </button>
+        <button id="siege" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_siege_weight" value="submit">
+            Lay waste to the whole thing
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">You are defending your position as a last stand.  Your enemy is “at the gates” so to speak.  Do you ride out on jetbikes and land speeders, hoping to startle and swarm the enemy, or do you utilize heavy artillery and air strikes while staying behind cover?</label><br>
+        <button id="glory" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_glory_weight" value="submit">
+            Blaze of Glory
+        </button>
+        <button id="turtle" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_turtle_weight" value="submit">
+            Turtle
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <label for="legion">When your Space Marines are not deployed or in combat, they spend their time:</label><br>
+        <button id="int" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_int_weight" value="submit">
+            Expanding their minds, engaging with art, or performing Humanitarian efforts  
+        </button>
+        <button id="combat" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="add_combat_weight" value="submit">
+            Combat Training non-stop
+        </button>
+    </form>
+    <form onsubmit="return false">
+        <button id="runit" class="p-2 text-white bg-blue-600 border border-blue-600 rounded" type="submit" pys-onclick="choose_legion" value="submit">
+            Run it
+        </button>
+    </form>
+    
+    <p>Output:</p>
+    <p id = 'output'></p>
+    <py-script>
+        daw = 0
+        ecw = 0
+        iww = 0
+        saw = 0
+        ifw = 0
+        baw = 0
+        ihw = 0
+        wsw = 0
+        rgw = 0
+        umw = 0
+        sww = 0
+        dgw = 0
+        tsw = 0
+        wew = 0
+        wbw = 0
+        nlw = 0
+        shw = 0
+        alw = 0
 
+        def add_yes_weight(*args, **kwargs):
+            global shw
+            global wbw
+            global ecw
+            global nlw
+            global alw
+            shw = shw + 6
+            wbw = wbw + 6
+            ecw = ecw + 5
+            nlw = nlw + 1
+            alw = alw + 4
+        
+        def add_no_weight(*args, **kwargs):
+            global baw
+            global ifw
+            global umw
+            global wsw
+            global ihw
+            global saw
+            global rgw
+            global tsw
+            baw = baw + 2
+            ifw = ifw + 3
+            umw = umw + 3
+            wsw = wsw + 1
+            ihw = ihw + 1
+            saw = saw + 7
+            rgw = rgw + 1
+            tsw = tsw + 1
+
+        def add_orbital_weight(*args, **kwargs):
+            global baw
+            global ifw
+            global wbw
+            global alw
+            global tsw
+            baw = baw + 2
+            ifw = ifw + 3
+            wbw = wbw + 1
+            alw = alw + 1
+            tsw = tsw + 2
+
+        def add_arma_weight(*args, **kwargs):
+            global wew
+            global dgw
+            global sww
+            global iww
+            global ihw
+            global nlw
+            global shw
+            wew = wew + 5
+            dgw = dgw + 4
+            sww = sww + 2
+            iww = iww + 4
+            ihw = ihw + 3
+            nlw = nlw + 3
+            shw = shw + 2
+
+        def add_numbers_weight(*args, **kwargs):
+            global wew
+            global dgw
+            global sww
+            global ihw
+            global iww
+            global wsw
+            global tsw
+            global wbw
+            global shw
+            wew = wew + 2
+            dgw = dgw + 4
+            sww = sww + 2
+            ihw = ihw + 1
+            iww = iww + 2
+            wsw = wsw + 2
+            tsw = tsw + 2
+            wbw = wbw + 4
+            shw = shw + 3
+
+        def add_elite_weight(*args, **kwargs):
+            global ecw
+            global umw
+            global daw
+            global baw
+            global rgw
+            global alw
+            ecw = ecw + 5
+            umw = umw + 4
+            daw = daw + 5
+            baw = baw + 2
+            rgw = rgw + 2
+            alw = alw + 4
+
+        def add_shock_weight(*args, **kwargs):
+            global wsw
+            global wew
+            global baw
+            global sww
+            global nlw
+            wsw = wsw + 5
+            wew = wew + 4
+            baw = baw + 2
+            sww = sww + 1 
+            nlw = nlw + 4
+        
+        def add_attrition_weight(*args, **kwargs):
+            global dgw
+            global iww
+            global wbw
+            global ihw
+            global saw
+            dgw = dgw + 5
+            iww = iww + 3
+            wbw = wbw + 1
+            ihw = ihw + 1
+            saw = saw + 2
+        
+        def add_nocodex_weight(*args, **kwargs):
+            global ifw
+            global sww
+            global daw
+            global wbw
+            global nlw
+            global shw
+            global alw
+            ifw = ifw + 5
+            sww = sww + 4
+            daw = daw + 2
+            wbw = wbw + 2
+            nlw = nlw + 1
+            shw = shw + 2
+            alw = alw + 1        
+
+        def add_yescodex_weight(*args, **kwargs):
+            global umw
+            global rgw
+            global saw
+            global ihw
+            global wsw
+            global tsw
+            umw = umw + 5
+            rgw = rgw + 2
+            saw = saw + 2
+            ihw = ihw + 2
+            wsw = wsw + 2
+            tsw = tsw + 1
+
+        def add_chain_weight(*args, **kwargs):
+            global wew
+            global baw
+            global nlw
+            global wsw
+            global shw
+            wew = wew + 5
+            baw = baw + 4 
+            nlw = nlw + 2
+            wsw = wsw + 1
+            shw = shw + 1
+
+        def add_ranged_weight(*args, **kwargs):
+            global daw
+            global umw
+            global ihw
+            global alw
+            global rgw
+            global ifw
+            global shw
+            daw = daw + 5
+            umw = umw + 3 
+            ihw = ihw + 2
+            alw = alw + 2
+            rgw = rgw + 3
+            ifw = ifw + 1
+            shw = shw + 1 #this appears in both options on purpose
+
+        def add_propsyker_weight(*args, **kwargs):
+            global tsw
+            global baw
+            global wsw
+            global wbw
+            global ecw
+            global saw
+            global umw
+            global nlw
+            tsw = tsw +  7
+            baw = baw + 3
+            wsw = wsw + 2
+            wbw = wbw + 2
+            ecw = ecw + 3
+            saw = saw + 4
+            umw = umw + 3
+            nlw = nlw + 2
+
+        def add_antipsyker_weight(*args, **kwargs):
+            global sww
+            global ifw
+            global daw
+            global rgw
+            global ihw
+            global dgw
+            global alw
+            sww = sww + 4
+            ifw = ifw + 2
+            daw = daw + 2
+            rgw = rgw + 5
+            ihw = ihw + 5
+            dgw = dgw + 6
+            alw = alw + 1
+
+        def add_covert_weight(*args, **kwargs):
+            global alw
+            global rgw
+            global nlw
+            global tsw
+            global wbw
+            alw = alw + 5
+            rgw = rgw + 6
+            nlw = nlw + 2
+            tsw = tsw + 2
+            wbw = wbw + 1
+
+        def add_siege_weight(*args, **kwargs):
+            global iww
+            global ifw
+            global wsw
+            global shw
+            global dgw
+            global ihw
+            global sww
+            iww = iww + 5
+            ifw = ifw + 4
+            wsw = wsw + 1
+            shw = shw + 1
+            dgw = dgw + 1
+            ihw = ihw + 5
+            sww = sww + 3
+
+        def add_glory_weight(*args, **kwargs):
+            global wsw
+            global wew
+            global sww
+            global rgw
+            global ecw
+            global nlw
+            wsw = wsw + 5
+            wew = wew + 2
+            sww = sww + 2
+            rgw = rgw + 1
+            ecw = ecw + 3
+            nlw = nlw + 2
+
+        def add_turtle_weight(*args, **kwargs):
+            global iww
+            global ifw
+            global umw
+            global daw
+            global shw
+            iww = iww + 5
+            ifw = ifw + 2
+            umw = umw + 2
+            daw = daw + 3
+            shw = shw + 1
+
+        def add_int_weight(*args, **kwargs):
+            global baw
+            global wbw
+            global daw
+            global saw
+            global alw
+            global sww
+            global ecw
+            global wsw
+            global tsw
+            baw = baw + 5
+            wbw = wbw + 3
+            daw = daw + 3
+            saw = saw + 5
+            alw = alw + 1
+            sww = sww + 1
+            ecw = ecw + 4
+            wsw = wsw + 1
+            tsw = tsw + 5
+            
+        def add_combat_weight(*args, **kwargs):
+            global wew 
+            global nlw
+            global shw
+            global iww
+            wew = wew + 2
+            nlw = nlw + 3
+            shw = shw +3
+            iww = iww + 1
+
+        def choose_legion(*args, **kwargs):
+            print(str(daw) + 'Dark Angels')
+            print(str(ecw) + 'Emps Children')
+            print(str(iww) + 'Iron Warriors')
+            print(str(saw) + 'Salamanders')
+            print(str(ifw) + 'Imperial Fists')
+            print(str(baw) + 'Blood Angels')
+            print(str(ihw) + 'Iron Hands')
+            print(str(wsw) + 'White Scars')
+            print(str(rgw) + 'Raven Guard')
+            print(str(umw) + 'Ultramarines')
+            print(str(sww) + 'Space Wolves')
+            print(str(dgw) + 'Death Guard')
+            print(str(tsw) + 'Thousand Sons')
+            print(str(wew) + 'World Eaters')
+            print(str(wbw) + 'Word Bearers')
+            print(str(nlw) + 'Night Lords')
+            print(str(shw) + 'Sons of Horus')
+            print(str(alw) + 'Alpha Legion')
+            print('Your Chosen Legion Is:')
+            legionlist = [daw,ecw,iww,saw,ifw,baw,ihw,wsw,rgw,umw,sww,dgw,tsw,wew,wbw,nlw,shw,alw] 
+            print(legionlist.index(max(legionlist)))
+            if legionlist.index(max(legionlist)) == 0:
+                print('Dark Angels')
+                result_place = Element('output')
+                result_place.write(f"Dark Angels")
+            elif legionlist.index(max(legionlist)) == 1:
+                print('Emperors Children')
+                result_place = Element('output')
+                result_place.write(f"Emperors Children")
+            elif legionlist.index(max(legionlist)) == 2:
+                print('Iron Warriors')
+                result_place = Element('output')
+                result_place.write(f"Iron Warriors")
+            elif legionlist.index(max(legionlist)) == 3:
+                print('Salamanders')
+                result_place = Element('output')
+                result_place.write(f"Salamanders")
+            elif legionlist.index(max(legionlist)) == 4:
+                print('Imperial Fists')
+                result_place = Element('output')
+                result_place.write(f"Imperial Fists")
+            elif legionlist.index(max(legionlist)) == 5:
+                print('Blood Angels')
+                result_place = Element('output')
+                result_place.write(f"Blood Angels")
+            elif legionlist.index(max(legionlist)) == 6:
+                print('Iron Hands')
+                result_place = Element('output')
+                result_place.write(f"Iron Hands")
+            elif legionlist.index(max(legionlist)) == 7:
+                print('White Scars')
+                result_place = Element('output')
+                result_place.write(f"White Scars")
+            elif legionlist.index(max(legionlist)) == 8:
+                print('Raven Guard')
+                result_place = Element('output')
+                result_place.write(f"Raven Guard")
+            elif legionlist.index(max(legionlist)) == 9:
+                print('Ultramarines')
+                result_place = Element('output')
+                result_place.write(f"Ultramarines")
+            elif legionlist.index(max(legionlist)) == 10:
+                print('Space Wolves')
+                result_place = Element('output')
+                result_place.write(f"Space Wolves")
+            elif legionlist.index(max(legionlist)) == 11:
+                print('Death Guard')
+                result_place = Element('output')
+                result_place.write(f"Death Guard")
+            elif legionlist.index(max(legionlist)) == 12:
+                print('Thousand Sons')
+                result_place = Element('output')
+                result_place.write(f"Thousand Sons")
+            elif legionlist.index(max(legionlist)) == 13:
+                print('World Eaters')
+                result_place = Element('output')
+                result_place.write(f"World Eaters")
+            elif legionlist.index(max(legionlist)) == 14:
+                print('Word Bearers')
+                result_place = Element('output')
+                result_place.write(f"Word Bearers")
+            elif legionlist.index(max(legionlist)) == 15:
+                print('Night Lords')
+                result_place = Element('output')
+                result_place.write(f"Night Lords")
+            elif legionlist.index(max(legionlist)) == 16:
+                print('Sons of Horus')
+                result_place = Element('output')
+                result_place.write(f"Sons of Horus")
+            elif legionlist.index(max(legionlist)) == 17:
+                print('Alpha Legion')
+                result_place = Element('output')
+                result_place.write(f"Alpha Legion")
+            else:
+                print('You didnt answer anything!')
+                result_place = Element('output')
+                result_place.write(f"Please answer the questions!")
+        
+                print(max(daw,ecw,iww,saw,ifw,baw,ihw,wsw,rgw,umw,sww,dgw,tsw,wew,wbw,nlw,shw,alw))
+        </py-script>
+</body>
+</div>
 </html>

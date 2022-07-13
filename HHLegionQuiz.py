@@ -120,6 +120,19 @@ shw = 0
 #Alpha Legion weight variable
 alw = 0
 
+print('You are invading a hostile planet. Do you spearhead with Fast Attack, or hunker down for to blast the enemy with Heavy Assault?')
+#this part probably goes in the HTML
+#for the purpose of this test code, we'll define the pys-onClick variable as 'tst'
+tst = True
+if tst == True:
+    wsw = wsw + 3
+    rgw = rgw + 2
+    wew = wew + 1
+elif tst == False:
+    iww = iww + 3
+    ifw = ifw + 2
+    dgw = dgw + 1
+
 
 
     
